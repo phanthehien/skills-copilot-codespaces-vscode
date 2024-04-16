@@ -1,8 +1,14 @@
 function skillsMember() {
-    var member = {
-        name: 'John Doe',
-        age: 25,
-        skills: ['JavaScript', 'React', 'Node']
-    };
-    return member;
+  var member = {
+    name: 'John Doe',
+    age: 30,
+    skills: ['HTML', 'CSS', 'JS'],
+    printSkills: function() {
+      this.skills.forEach(function(skill) {
+        console.log(`${this.name} knows ${skill}`);
+      });
+    }
+  };
+
+  member.printSkills();
 }

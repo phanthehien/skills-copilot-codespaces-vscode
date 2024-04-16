@@ -1,11 +1,15 @@
- <!-- generate the html form that has a button to trigger fetch content api /generate of app.js file-->
- <html>
-   <head>
-     <title>HTML to PDF</title>
-   </head>
-   <body>
-     <form action="/generate" method="post">
-       <button type="submit">Generate PDF</button>
-     </form>
-   </body>
- </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comment Form</title>
+</head>
+<body>
+    <form action="/comments" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

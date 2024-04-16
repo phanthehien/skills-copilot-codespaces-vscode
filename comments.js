@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // Set up body parser for POST requests
 app.use(bodyParser.json());
 
@@ -37,6 +40,8 @@ app.post('/comments', (req, res) => {
         comment: req.body.comment
     };
 
+    console.log('')
+
     // Add new comment to comments array
     comments.push(newComment);
 
@@ -54,32 +59,3 @@ app.post('/comments', (req, res) => {
 app.listen(3000, () => {
     console.log('Server started on http://localhost:3000');
 });
-
-// Path: public/index.html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Comments</title>
-</head>
-<body>
-    <h1>Comments</h1>
-    <ul id="comment-list"></ul>
-    <form id="comment-form">
-        <input type="text" id="name" placeholder="Name" required>
-        <textarea id="comment" placeholder="Comment" required></textarea>
-        <button type="submit">Submit</button>
-    </form>
-    <script src="app.js"></script>
-</body>
-</html>
-
-// Path: public/app.js
-document.addEventListener('DOMContentLoaded', () => {
-    // Get comment list element
-    const commentList = document.getElementById('comment-list');
-
-    // Load comments from server
-    fetch('/comments')
-        .then(response => response.json())
-        .then(comments
-

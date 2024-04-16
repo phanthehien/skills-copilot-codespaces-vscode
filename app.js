@@ -8,6 +8,10 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -32,6 +36,8 @@ app.post('/comments', (req, res) => {
     };
 
     comments.push(newComment);
+
+    console.log('requ', req.body)
 
     fs.writeFile('comments.json', JSON.stringify(comments), (err) => {
         if (err) {

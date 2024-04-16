@@ -4,8 +4,9 @@
   "description": "<header>",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node app.js"
+    "test": "jest",
+    "dev": "node app.js",
+    "postinstall": "npx simple-git-hooks"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,9 @@
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "simple-git-hooks": "^2.11.1"
   }
 }
